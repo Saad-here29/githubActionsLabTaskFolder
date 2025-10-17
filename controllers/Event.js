@@ -4,7 +4,7 @@ function isValidEvent(event) {
   }
 
   const eventDate = new Date(event.date);
-  const today = new Date(); // ✅ define 'today'
+  const today = new Date(); //  define 'today'
 
   if (isNaN(eventDate.getTime())) {
     return { valid: false, message: "Invalid date format" };
