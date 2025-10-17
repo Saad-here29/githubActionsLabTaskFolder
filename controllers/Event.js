@@ -4,13 +4,15 @@ function isValidEvent(event) {
   }
 
   const eventDate = new Date(event.date);
-  const now = new Date();
+  const today = new Date(); // ✅ define 'today'
 
-//   // BUG: Should not allow past dates, but currently allows them
   if (isNaN(eventDate.getTime())) {
     return { valid: false, message: "Invalid date format" };
   }
-   
+
+  if (eventDate < today) {
+    return { valid: false, message: "Event date cannot be in the past" };
+  }
 
   return { valid: true, message: "Event is valid" };
 }
